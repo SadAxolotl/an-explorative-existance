@@ -56,9 +56,13 @@ def dnsw():
 					input("CRITICAL HIT, YOU TAKE HIM DOWN IN ONE PUNCH, hit enter to continue...")
 					o.system("clear")
 					vars.ifbreak = 1
+				else:
+					input("He takes the punch and slams you on the ground, you lose 5 health, you are now at: "+str(vars.currh)+", hit enter to continue...")
+					o.system("clear")
+					vars.ifbreak = 1
 	else:
 					vars.currh -= 10
-					input("He grabs your punch and throws you to the ground dealing 10 damage!","Your health is now down to:",str(vars.currh))
+					print("He grabs your punch and throws you to the ground dealing 10 damage!","Your health is now down to:",str(vars.currh))
 					input("hit enter to continue...")
 					o.system("clear")
 def swrd():
@@ -69,14 +73,15 @@ def swprd():
 	swamp.swamprnd = r.randint(1, 5)
 def hkit():
 	print("You found a healthkit!")
-	vars.kit = 1
+	vars.kit += 1
 	yorn = input("type y to use it and n to not use it: ")
 	if yorn == "y":
-		input("you have used your healthkit, you have gone to maximum health, hit enter to contiune...")
+		input("you have used your healthkit, you have gone to maximum health, you now have "+str(vars.kit)+" health kits, hit enter to contiune...")
 		vars.currh = 20
-		vars.kit = 0
+		vars.kit -= 1
 	else:
-		input("you have saved your healthkit, hit enter to continue...")
+		input("you have saved your healthkit, you now have "+str(vars.kit)+" health kits, hit enter to continue...")
+	o.system('clear')
 def swampdef():
 	randnum = r.randint(1,20)
 	if randnum == 13:
@@ -93,7 +98,7 @@ def newplayer():
 	t.sleep(2)
 	print("this is my string based story game that is controlled by multiple choice questions that vary between environments")
 	t.sleep(8)
-	print("anyway, have fun!")
+	print("anyways, have fun!")
 	t.sleep(3)
 	o.system('clear')
 	persistant = open("persistant.txt", "r")#replace here
@@ -124,9 +129,9 @@ def walkd():
 	while True:
 		if vars.currh < 1:
 			death()
-			if vars.ifbreak == 1:
-				break
-				vars.ifbreak = 0
+		elif vars.ifbreak == 1:
+			vars.ifbreak = 0
+			break
 		vars.rorl = input("you come up to a ravaging man, will you flee (50% success), yell (50% scare success), or attack (25% chance without a weapon, 75 with)\n")
 		flag = 0
 		for line in persistant:  
@@ -171,14 +176,16 @@ def walkd():
 					o.system("clear")
 					break
 def walka():
-	chance = r.randint(0,1)
+	chance = r.randint(0,5)
 	if chance == 0:
 		swrd()
 		input("YOU FOUND A SWORD!!! hit enter to continue...") 
 		o.system("clear")
 	else:
 		input("you come at a small outpost, you sit down, hit enter to search the area...")
-		hkit()
+		chance = r.randint(0,3)
+		if chance == 0:
+			hkit()
 def death():
 	print("you died LOL")
 	playsound.playsound("dead.mp3")
