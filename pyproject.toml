@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "string-based-game"
+name = "Supa Dupa Fun Game"
 version = "0.1.4"
 description = ""
-authors = ["Brandon Bailey <Brandon.bailey3@student.nisdtx.org>"]
+authors = ["Brandon Bailey, Nick Wilkerson <Brandon.bailey3@student.nisdtx.org>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"

@@ -57,12 +57,13 @@ def dnsw():
 					o.system("clear")
 					vars.ifbreak = 1
 				else:
-					input("He takes the punch and slams you on the ground, you lose 5 health, you are now at: "+str(vars.currh)+", hit enter to continue...")
+					vars.currh -= 3
+					input("He takes the punch and slams you on the ground, you lose 3 health, you are now at: "+str(vars.currh)+", hit enter to continue...")
 					o.system("clear")
 					vars.ifbreak = 1
 	else:
 					vars.currh -= 10
-					print("He grabs your punch and throws you to the ground dealing 10 damage!","Your health is now down to:",str(vars.currh))
+					print("What did you just say?! He grabs your punch and throws you to the ground dealing 10 damage!","Your health is now down to:",str(vars.currh))
 					input("hit enter to continue...")
 					o.system("clear")
 def swrd():
@@ -413,6 +414,19 @@ while True:
 		else: 
 			while True:
 				if swamp.swamptf == False:
+					hkitvar = input("would you like to use a heath kit (y or n?) you're at "+str(vars.currh)+" health: ") 
+					if hkitvar == "y":
+						print("you are now at 20 health!")
+						vars.currh = 20
+						vars.kit -= 1
+						t.sleep(2)
+						o.system('clear')
+					elif hkitvar == "n":
+						print("ok, looks like your not gonna use your kit.")
+						t.sleep(2)
+						o.system('clear')
+					else:
+						o.system('clear')
 					health()
 					randplay()
 					if vars.randnum == 1:
