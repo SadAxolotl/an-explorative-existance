@@ -193,6 +193,8 @@ def death():
 	weapon = open("weapon.txt", "w")
 	weapon.write("")
 	weapon = open("weapon.txt", "r")
+	t.sleep(5)
+	exit()
 def health():
 	if vars.currh < 20:
 		vars.currh += 1
@@ -244,6 +246,7 @@ def s2():
 					vars.currh -= 20
 					input("it grabs your punch and throws you to the ground dealing 20 damage!","hit enter to continue...")
 					o.system("clear")
+					break
 		else:
 			if vars.rorl == "flee":
 				chance = r.randint(1,2)
@@ -291,9 +294,11 @@ def s3():
 				vars.currh -= 10
 				input("OH NO! You panic and the spider bites you, you lose 10 health from the poison then leave the house, hit enter to continue...")
 				o.system("clear")
+				break
 			else:
 				input("Phew, the spider jumps off of you and you leave the house, hit enter to continue...")
 				o.system("clear")
+				break
 		elif chance == 2:
 			while True:
 				if vars.currh < 1:
@@ -363,8 +368,8 @@ def s3():
 								input("he just pounces at you and takes 2 points away from your health.","Your health is now down to:",str(vars.currh),"\nhit enter to continue...")
 								o.system("clear")
 					elif vars.rorl == "attack":
-						chance = r.randint(1,4)
-						if chance == 1 or 2 or 3:
+						chance = r.randint(1,5)
+						if chance == 1 or chance == 2 or chance == 3 or chance == 4:
 							input("You stab him in the heart, he bleeds out, hit enter to continue...")
 							break
 							o.system("clear")
@@ -377,13 +382,26 @@ def s3():
 		elif chance == 3:
 			pra = input("you see a dog in the house, will you 'pet' the dog, 'run', or 'attack' the dog: ")
 			o.system("clear")
-			pass
 			if pra == "run":
-				pass
-			elif pra == "":
-				pass
-			elif 0 == 9:
-				pass
+				input("you escape from the house, hit enter to continue... ")
+			  o.system('clear')
+				break
+			elif pra == "pet":
+				input("whose a good boy? YOU ARE! you get a sword from the dog! hit enter to continue...")
+				swrd()
+				o.system('clear')
+				break
+			elif pra == "attack":
+				chance = r.randint(1,4)
+				if chance == 1 or chance == 2 or chance == 3:
+					input("you think you could get away with trying to kill a dog, you will never prosper, hit enter to continue... ")
+					o.system('clear')
+					vars.currh = 0
+					break
+				else:
+					input("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO YOU MONSTER, YOU KILLED DOGMEAT! hit enter to continue B(")
+					o.system("clear")
+					break
 			else:
 				input("you messed up, hit enter to continue...")
 				o.system("clear")
