@@ -513,7 +513,7 @@ while True:
 				if swamp.swamptf == False:
 					if vars.kit > 0: 
 						hkitvar = input("would you like to use a heath kit (y or n?) you're at "+str(vars.currh)+" health: ") 
-						if hkitvar == "y" and vars.kit < 0:
+						if hkitvar == "y" and vars.kit > 0:
 							print("you are now at 20 health!")
 							vars.currh = 20
 							vars.kit -= 1
