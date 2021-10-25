@@ -207,13 +207,78 @@ def s2():
 	while True:
 		if vars.currh < 1:
 			death()
-		vars.rorl = input("you come up to a ravaging man, will you flee (1/4 success), yell (1/8 scare success), or attack (1/5 chance without a weapon, 8/9 with)\n")
+		vars.rorl = input("you come up to a golem, will you flee (1/4 success), yell (1/8 scare success), or attack (1/5 chance without a weapon, 8/9 with)\n")
 		flag = 0
 		for line in persistant:  
 			pass
 			if "y" in line:
 				flag = 1
-				break
+				if vars.rorl == "flee":
+					chance = r.randint(1,4)
+					if chance == 1:
+						input("FLEE SUCCESS! hit enter to continue...")
+						o.system("clear")
+						break
+					else:
+						vars.currh -= 15
+						print("Oh No! The golem runs up to you as you're vunrible and attacks you for 15 health. Your health is now down to:",str(vars.currh))
+						input("hit enter to continue...")
+						o.system("clear")
+				elif vars.rorl == "yell":
+					chance = r.randint(1,8)
+					if chance == 1:
+						input("HE IS TERRIFIED, HE RUNS AWAY SCREAMING LIKE A LITTLE GIRL. hit enter to continue...")
+						o.system("clear")
+						break
+					else:
+						vars.currh -= 10
+						print("it just pounces at you and takes 10 points away from your health.","Your health is now down to:",str(vars.currh))
+						input("hit enter to continue...")
+				elif vars.rorl == "attack":
+					chance = r.randint(1,4)
+					if chance == 1:
+						input("CRITICAL HIT, YOU TAKE IT DOWN IN ONE PUNCH, hit enter to continue...")
+						o.system("clear")
+						break
+					else:
+						vars.currh -= 20
+						input("it grabs your punch and throws you to the ground dealing 20 damage!","hit enter to continue...")
+						o.system("clear")
+						break
+			else:
+				if vars.rorl == "flee":
+					chance = r.randint(1,2)
+					if chance == 1:
+						input("FLEE SUCCESS! hit enter to continue...")
+						o.system("clear")
+						break
+					else:
+						vars.currh -= 15
+						print("Oh No! The golem runs up to you as 	you're vunrible and attacks you for 15 health. Your health is now down to:",str	(vars.currh))
+						input("\nhit enter to continue...")
+						o.system("clear")
+				elif vars.rorl == "yell":
+					chance = r.randint(1,8)
+					if chance == 1:
+						input("HE IS TERRIFIED, HE RUNS AWAY SCREAMING LIKE A LITTLE GIRL. hit enter to continue...")
+						o.system("clear")
+						break
+					else:
+						vars.currh -= 2
+						print("he just pounces at you and takes 2 points away from your health.","Your health is now down to:",str(vars.currh))
+						input("hit enter to continue...")
+						o.system("clear")
+				elif vars.rorl == "attack":
+					chance = r.randint(1,4)
+					if chance == 1:
+						input("You slap and kick him, he dies, hit enter to continue...")
+						break
+						o.system("clear")
+					else:
+						vars.currh -= 20
+						input("He grabs your sword and throws you to the ground and stabs you, *CRITICAL HIT* dealing 20 damage!","Your health is now down to:",str(vars.currh),"\nhit enter to continue...")
+						o.system("clear")
+						break
 		if flag == 0:
 			if vars.rorl == "flee":
 				chance = r.randint(1,4)
@@ -294,11 +359,9 @@ def s3():
 				vars.currh -= 10
 				input("OH NO! You panic and the spider bites you, you lose 10 health from the poison then leave the house, hit enter to continue...")
 				o.system("clear")
-				break
 			else:
 				input("Phew, the spider jumps off of you and you leave the house, hit enter to continue...")
 				o.system("clear")
-				break
 		elif chance == 2:
 			while True:
 				if vars.currh < 1:
@@ -310,8 +373,7 @@ def s3():
 						pass
 					if "y" in line:
 						flag = 1
-						break
-						if flag == 0:
+						if flag == 1:
 							if vars.rorl == "flee":
 								chance = r.randint(1,2)
 								if chance == 1:
@@ -345,7 +407,7 @@ def s3():
 									input("He grabs your punch and throws you to the ground dealing 10 damage!","Your health is now down to:",str(vars.currh))
 									input("hit enter to continue...")
 									o.system("clear")
-						else:
+					else:
 							if vars.rorl == "flee":
 								chance = r.randint(1,2)
 								if chance == 1:
@@ -363,45 +425,41 @@ def s3():
 									input("HE IS TERRIFIED, HE RUNS AWAY SCREAMING LIKE A LITTLE GIRL. hit enter to continue...")
 									o.system("clear")
 									break
-							else:
-								vars.currh -= 2
-								input("he just pounces at you and takes 2 points away from your health.","Your health is now down to:",str(vars.currh),"\nhit enter to continue...")
-								o.system("clear")
-					elif vars.rorl == "attack":
-						chance = r.randint(1,5)
-						if chance == 1 or chance == 2 or chance == 3 or chance == 4:
-							input("You stab him in the heart, he bleeds out, hit enter to continue...")
-							break
-							o.system("clear")
-						else:
-							vars.currh -= 20
-							print("He grabs your sword and throws you to the ground and stabs you, *CRITICAL HIT* dealing 20 damage!","Your health is now down to:",str(vars.currh))
-							input("hit enter to continue...")
-							o.system("clear")
-							break
+								else:
+									vars.currh -= 2
+									input("he just pounces at you and takes 2 points away from your health.","Your health is now down to:",str(vars.currh),"\nhit enter to continue...")
+									o.system("clear")
+							elif vars.rorl == "attack":
+								chance = r.randint(1,5)
+								if chance == 1 or chance == 2 or chance == 3 or chance == 4:
+									input("You stab him in the heart, he bleeds out, hit enter to continue...")
+									break
+									o.system("clear")
+								else:
+									vars.currh -= 20
+									print("He grabs your sword and throws you to the ground and stabs you, *CRITICAL HIT* dealing 20 damage!","Your health is now down to:",str(vars.currh))
+									input("hit enter to continue...")
+									o.system("clear")
+									break
 		elif chance == 3:
 			pra = input("you see a dog in the house, will you 'pet' the dog, 'run', or 'attack' the dog: ")
 			o.system("clear")
 			if pra == "run":
 				input("you escape from the house, hit enter to continue... ")
-			  o.system('clear')
-				break
+				o.system('clear')
 			elif pra == "pet":
 				input("whose a good boy? YOU ARE! you get a sword from the dog! hit enter to continue...")
 				swrd()
 				o.system('clear')
-				break
 			elif pra == "attack":
 				chance = r.randint(1,4)
 				if chance == 1 or chance == 2 or chance == 3:
 					input("you think you could get away with trying to kill a dog, you will never prosper, hit enter to continue... ")
 					o.system('clear')
 					vars.currh = 0
-					break
 				else:
 					input("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO YOU MONSTER, YOU KILLED DOGMEAT! hit enter to continue B(")
 					o.system("clear")
-					break
 			else:
 				input("you messed up, hit enter to continue...")
 				o.system("clear")
@@ -412,8 +470,32 @@ def s3():
 		input("you messed up, hit enter to continue...")
 		o.system("clear")
 def s4():
-	input("future interaction, hit enter to continue...")
-	o.system("clear")
+	pass
+	o.system('clear')
+	yorn = input("you see a woman in the middle of a lake, what will you do ('walk to her','walk away','sneak attack', or 'rush her'")
+	if yorn == 'walk to her':
+		print("you walk to her")
+		t.sleep(.5)
+		print("she looks at you")
+		for line in persistant:
+			pass
+		if "y" in line:
+			flag = 1
+			if flag == 1:
+				hkit()
+			else:
+				swrd()
+	elif yorn == 'sneak attack':
+		vars.currh = 1
+		input("she takes you out in one hit leaving you with 1 health, press enter to continue...")
+		o.system('clear')
+	elif yorn == 'rush her':
+		vars.currh -= 5
+		input("she throws you into a tree leaving you with 5 less health, hit enter to continue...")
+	else:
+		print("you peacfully walk away...")
+		t.sleep(5)
+		o.system('clear')
 while True:
 	swampdef()
 	o.system("clear")
@@ -433,7 +515,7 @@ while True:
 			while True:
 				if swamp.swamptf == False:
 					hkitvar = input("would you like to use a heath kit (y or n?) you're at "+str(vars.currh)+" health: ") 
-					if hkitvar == "y":
+					if hkitvar == "y" and vars.kit < 0:
 						print("you are now at 20 health!")
 						vars.currh = 20
 						vars.kit -= 1
@@ -444,6 +526,8 @@ while True:
 						t.sleep(2)
 						o.system('clear')
 					else:
+						print("you have no kits")
+						t.sleep(2)
 						o.system('clear')
 					health()
 					randplay()
