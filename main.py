@@ -5,8 +5,6 @@ import time as t
 o.system("clear")
 import random as r
 o.system("clear")
-import playsound
-o.system("clear")
 persistant = open("persistant.txt", "r")
 o.system("clear")
 weapon = open("weapon.txt", "r")
@@ -189,7 +187,6 @@ def walka():
 			hkit()
 def death():
 	print("you died LOL")
-	playsound.playsound("dead.mp3")
 	weapon = open("weapon.txt", "w")
 	weapon.write("")
 	weapon = open("weapon.txt", "r")
@@ -514,7 +511,10 @@ while True:
 		else: 
 			while True:
 				if swamp.swamptf == False:
-					hkitvar = input("would you like to use a heath kit (y or n?) you're at "+str(vars.currh)+" health: ") 
+					if vars.kit > 0: 
+						hkitvar = input("would you like to use a heath kit (y or n?) you're at "+str(vars.currh)+" health: ") 
+					else:
+						pass
 					if hkitvar == "y" and vars.kit < 0:
 						print("you are now at 20 health!")
 						vars.currh = 20
