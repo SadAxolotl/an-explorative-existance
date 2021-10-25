@@ -513,22 +513,22 @@ while True:
 				if swamp.swamptf == False:
 					if vars.kit > 0: 
 						hkitvar = input("would you like to use a heath kit (y or n?) you're at "+str(vars.currh)+" health: ") 
+						if hkitvar == "y" and vars.kit < 0:
+							print("you are now at 20 health!")
+							vars.currh = 20
+							vars.kit -= 1
+							t.sleep(2)
+							o.system('clear')
+						elif hkitvar == "n":
+							print("ok, looks like your not gonna use your kit.")
+							t.sleep(2)
+							o.system('clear')
+						else:
+							print("you have no kits")
+							t.sleep(2)
+							o.system('clear')
 					else:
 						pass
-					if hkitvar == "y" and vars.kit < 0:
-						print("you are now at 20 health!")
-						vars.currh = 20
-						vars.kit -= 1
-						t.sleep(2)
-						o.system('clear')
-					elif hkitvar == "n":
-						print("ok, looks like your not gonna use your kit.")
-						t.sleep(2)
-						o.system('clear')
-					else:
-						print("you have no kits")
-						t.sleep(2)
-						o.system('clear')
 					health()
 					randplay()
 					if vars.randnum == 1:
