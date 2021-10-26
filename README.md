@@ -7,4 +7,6 @@ constant updates, so you might want to make sure you have the latest version if 
 
 make sure you have all the files in the same folder so the game can run without errors
 
+use the run as idle option in the right click menu
+
 Anyways, Have fun!
