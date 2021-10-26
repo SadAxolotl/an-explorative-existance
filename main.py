@@ -1,19 +1,19 @@
 #ATTENTION!!!! this is meant to be played by itself, so make a copy and don't run it by yourself so you don't mess up the experiance of others
 import os as o
-o.system("clear")
+o.system("cls")
 import time as t
-o.system("clear")
+o.system("cls")
 import random as r
-o.system("clear")
+o.system("cls")
 persistant = open("persistant.txt", "r")
-o.system("clear")
+o.system("cls")
 weapon = open("weapon.txt", "r")
-o.system("clear")
+o.system("cls")
 with open('version.txt') as vers:
 	version = vers.read()
 print("WARNING!! this game is in ",version," ,so put bugs in the git, TYTYTY.")
 input("press enter to continue...")
-o.system("clear")
+o.system("cls")
 class swamp:
  swamptf = None
  swamprnd = None
@@ -30,40 +30,40 @@ def dnsw():
 				chance = r.randint(1,2)
 				if chance == 1:
 					input("FLEE SUCCESS! hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					vars.ifbreak = 1
 				else:
 					vars.currh -= 3
 					print("Oh No! The man runs up to you as you're vunrible and attacks you for 3 health. Your health is now down to:",str(vars.currh))
 					input("hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 	elif vars.rorl == "yell":
 				chance = r.randint(1,2)
 				if chance == 1:
 					input("HE IS TERRIFIED, HE RUNS AWAY SCREAMING LIKE A LITTLE GIRL. hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					vars.ifbreak = 1
 				else:
 					vars.currh -= 2
 					print("he just pounces at you and takes 2 points away from your health.","Your health is now down to:",str(vars.currh))
 					input("hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 	elif vars.rorl == "attack":
 				chance = r.randint(1,4)
 				if chance == 1:
 					input("CRITICAL HIT, YOU TAKE HIM DOWN IN ONE PUNCH, hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					vars.ifbreak = 1
 				else:
 					vars.currh -= 3
 					input("He takes the punch and slams you on the ground, you lose 3 health, you are now at: "+str(vars.currh)+", hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					vars.ifbreak = 1
 	else:
 					vars.currh -= 10
 					print("What did you just say?! He grabs your punch and throws you to the ground dealing 10 damage!","Your health is now down to:",str(vars.currh))
 					input("hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 def swrd():
 	weapon = open("weapon.txt", "w")#replace here
 	weapon.write("y")
@@ -80,7 +80,7 @@ def hkit():
 		vars.kit -= 1
 	else:
 		input("you have saved your healthkit, you now have "+str(vars.kit)+" health kits, hit enter to continue...")
-	o.system('clear')
+	o.system('cls')
 def swampdef():
 	randnum = r.randint(1,20)
 	if randnum == 13:
@@ -99,7 +99,7 @@ def newplayer():
 	t.sleep(8)
 	print("anyways, have fun!")
 	t.sleep(3)
-	o.system('clear')
+	o.system('cls')
 	persistant = open("persistant.txt", "r")#replace here
 def walk():
 	input("you have walked straight because that is the only way, click enter to continue...")
@@ -145,41 +145,41 @@ def walkd():
 				chance = r.randint(1,2)
 				if chance == 1:
 					input("FLEE SUCCESS! hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					break
 				else:
 					vars.currh -= 3
 					print("Oh No! The man runs up to you as you're vunrible and attacks you for 3 health. Your health is now down to:",str(vars.currh))
 					input("hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 			elif vars.rorl == "yell":
 				chance = r.randint(1,2)
 				if chance == 1:
 					input("HE IS TERRIFIED, HE RUNS AWAY SCREAMING LIKE A LITTLE GIRL. hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					break
 				else:
 					vars.currh -= 2
 					input("he just pounces at you and takes 2 points away from your health.","Your health is now down to:",str(vars.currh),"\nhit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 			elif vars.rorl == "attack":
 				chance = r.randint(1,4)
 				if chance == 1 or 2 or 3:
 					input("You stab him in the heart, he bleeds out, hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					break
 				else:
 					vars.currh -= 20
 					print("He grabs your sword and throws you to the ground and stabs you, *CRITICAL HIT* dealing 20 damage!","Your health is now down to:",str(vars.currh))
 					input("hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					break
 def walka():
 	chance = r.randint(0,5)
 	if chance == 0:
 		swrd()
 		input("YOU FOUND A SWORD!!! hit enter to continue...") 
-		o.system("clear")
+		o.system("cls")
 	else:
 		input("you come at a small outpost, you sit down, hit enter to search the area...")
 		chance = r.randint(0,3)
@@ -214,18 +214,18 @@ def s2():
 					chance = r.randint(1,4)
 					if chance == 1:
 						input("FLEE SUCCESS! hit enter to continue...")
-						o.system("clear")
+						o.system("cls")
 						break
 					else:
 						vars.currh -= 15
 						print("Oh No! The golem runs up to you as you're vunrible and attacks you for 15 health. Your health is now down to:",str(vars.currh))
 						input("hit enter to continue...")
-						o.system("clear")
+						o.system("cls")
 				elif vars.rorl == "yell":
 					chance = r.randint(1,8)
 					if chance == 1:
 						input("HE IS TERRIFIED, HE RUNS AWAY SCREAMING LIKE A LITTLE GIRL. hit enter to continue...")
-						o.system("clear")
+						o.system("cls")
 						break
 					else:
 						vars.currh -= 10
@@ -235,64 +235,64 @@ def s2():
 					chance = r.randint(1,4)
 					if chance == 1:
 						input("CRITICAL HIT, YOU TAKE IT DOWN IN ONE PUNCH, hit enter to continue...")
-						o.system("clear")
+						o.system("cls")
 						break
 					else:
 						vars.currh -= 20
 						input("it grabs your punch and throws you to the ground dealing 20 damage!","hit enter to continue...")
-						o.system("clear")
+						o.system("cls")
 						break
 			else:
 				if vars.rorl == "flee":
 					chance = r.randint(1,2)
 					if chance == 1:
 						input("FLEE SUCCESS! hit enter to continue...")
-						o.system("clear")
+						o.system("cls")
 						break
 					else:
 						vars.currh -= 15
 						print("Oh No! The golem runs up to you as 	you're vunrible and attacks you for 15 health. Your health is now down to:",str	(vars.currh))
 						input("\nhit enter to continue...")
-						o.system("clear")
+						o.system("cls")
 				elif vars.rorl == "yell":
 					chance = r.randint(1,8)
 					if chance == 1:
 						input("HE IS TERRIFIED, HE RUNS AWAY SCREAMING LIKE A LITTLE GIRL. hit enter to continue...")
-						o.system("clear")
+						o.system("cls")
 						break
 					else:
 						vars.currh -= 2
 						print("he just pounces at you and takes 2 points away from your health.","Your health is now down to:",str(vars.currh))
 						input("hit enter to continue...")
-						o.system("clear")
+						o.system("cls")
 				elif vars.rorl == "attack":
 					chance = r.randint(1,4)
 					if chance == 1:
 						input("You slap and kick him, he dies, hit enter to continue...")
 						break
-						o.system("clear")
+						o.system("cls")
 					else:
 						vars.currh -= 20
 						input("He grabs your sword and throws you to the ground and stabs you, *CRITICAL HIT* dealing 20 damage!","Your health is now down to:",str(vars.currh),"\nhit enter to continue...")
-						o.system("clear")
+						o.system("cls")
 						break
 		if flag == 0:
 			if vars.rorl == "flee":
 				chance = r.randint(1,4)
 				if chance == 1:
 					input("FLEE SUCCESS! hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					break
 				else:
 					vars.currh -= 15
 					print("Oh No! The golem runs up to you as you're vunrible and attacks you for 15 health. Your health is now down to:",str(vars.currh))
 					input("hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 			elif vars.rorl == "yell":
 				chance = r.randint(1,8)
 				if chance == 1:
 					input("HE IS TERRIFIED, HE RUNS AWAY SCREAMING LIKE A LITTLE GIRL. hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					break
 				else:
 					vars.currh -= 10
@@ -302,63 +302,63 @@ def s2():
 				chance = r.randint(1,4)
 				if chance == 1:
 					input("CRITICAL HIT, YOU TAKE IT DOWN IN ONE PUNCH, hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					break
 				else:
 					vars.currh -= 20
 					input("it grabs your punch and throws you to the ground dealing 20 damage!","hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					break
 		else:
 			if vars.rorl == "flee":
 				chance = r.randint(1,2)
 				if chance == 1:
 					input("FLEE SUCCESS! hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					break
 				else:
 					vars.currh -= 15
 					print("Oh No! The golem runs up to you as you're vunrible and attacks you for 15 health. Your health is now down to:",str(vars.currh))
 					input("\nhit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 			elif vars.rorl == "yell":
 				chance = r.randint(1,8)
 				if chance == 1:
 					input("HE IS TERRIFIED, HE RUNS AWAY SCREAMING LIKE A LITTLE GIRL. hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					break
 				else:
 					vars.currh -= 2
 					print("he just pounces at you and takes 2 points away from your health.","Your health is now down to:",str(vars.currh))
 					input("hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 			elif vars.rorl == "attack":
 				chance = r.randint(1,4)
 				if chance == 1:
 					input("You slap and kick him, he dies, hit enter to continue...")
 					break
-					o.system("clear")
+					o.system("cls")
 				else:
 					vars.currh -= 20
 					input("He grabs your sword and throws you to the ground and stabs you, *CRITICAL HIT* dealing 20 damage!","Your health is now down to:",str(vars.currh),"\nhit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					break
 def s3():
 	vars.rorl = input("you come up to an abandoned house you can either 'go in' or 'run away'\nwhat will you choose: ")
-	o.system("clear")
+	o.system("cls")
 	if vars.rorl == "go in":
 		chance = r.randint(1,3)
 		spic = r.randint(1,2)
 		if chance == 1:
 			input("A spider jumps on you! hit enter to continue...")
-			o.system("clear")
+			o.system("cls")
 			if spic == 1:
 				vars.currh -= 10
 				input("OH NO! You panic and the spider bites you, you lose 10 health from the poison then leave the house, hit enter to continue...")
-				o.system("clear")
+				o.system("cls")
 			else:
 				input("Phew, the spider jumps off of you and you leave the house, hit enter to continue...")
-				o.system("clear")
+				o.system("cls")
 		elif chance == 2:
 			while True:
 				if vars.currh < 1:
@@ -375,100 +375,100 @@ def s3():
 								chance = r.randint(1,2)
 								if chance == 1:
 									input("FLEE SUCCESS! hit enter to continue...")
-									o.system("clear")
+									o.system("cls")
 									break
 								else:
 									vars.currh -= 3
 									print("Oh No! The man runs up to you as you're vunrible and attacks you for 3 health. Your health is now down to:",str(vars.currh))
 									input("hit enter to continue...")
-									o.system("clear")
+									o.system("cls")
 							elif vars.rorl == "yell":
 								chance = r.randint(1,4)
 								if chance == 1:
 									input("HE IS TERRIFIED, HE RUNS AWAY SCREAMING LIKE A LITTLE GIRL. hit enter to continue...")
-									o.system("clear")
+									o.system("cls")
 									break
 								else:
 									vars.currh -= 2
 									print("he just pounces at you and takes 2 points away from your health.","Your health is now down to:",str(vars.currh))
 									input("hit enter to continue...")
-									o.system("clear")
+									o.system("cls")
 							elif vars.rorl == "attack":
 								chance = r.randint(1,20)
 								if chance == 1 or 2 or 3:
 									input("CRITICAL HIT, YOU TAKE HIM DOWN IN ONE PUNCH, hit enter to continue...")
-									o.system("clear")
+									o.system("cls")
 									break
 								else:
 									vars.currh -= 10
 									input("He grabs your punch and throws you to the ground dealing 10 damage!","Your health is now down to:",str(vars.currh))
 									input("hit enter to continue...")
-									o.system("clear")
+									o.system("cls")
 					else:
 							if vars.rorl == "flee":
 								chance = r.randint(1,2)
 								if chance == 1:
 									input("FLEE SUCCESS! hit enter to continue...")
-									o.system("clear")
+									o.system("cls")
 									break
 								else:
 									vars.currh -= 3
 									print("Oh No! The man runs up to you as you're vunrible and attacks you for 3 health. Your health is now down to:",str(vars.currh))
 									input("hit enter to continue...")
-									o.system("clear")
+									o.system("cls")
 							elif vars.rorl == "yell":
 								chance = r.randint(1,4)
 								if chance == 1:
 									input("HE IS TERRIFIED, HE RUNS AWAY SCREAMING LIKE A LITTLE GIRL. hit enter to continue...")
-									o.system("clear")
+									o.system("cls")
 									break
 								else:
 									vars.currh -= 2
 									input("he just pounces at you and takes 2 points away from your health.","Your health is now down to:",str(vars.currh),"\nhit enter to continue...")
-									o.system("clear")
+									o.system("cls")
 							elif vars.rorl == "attack":
 								chance = r.randint(1,5)
 								if chance == 1 or chance == 2 or chance == 3 or chance == 4:
 									input("You stab him in the heart, he bleeds out, hit enter to continue...")
 									break
-									o.system("clear")
+									o.system("cls")
 								else:
 									vars.currh -= 20
 									print("He grabs your sword and throws you to the ground and stabs you, *CRITICAL HIT* dealing 20 damage!","Your health is now down to:",str(vars.currh))
 									input("hit enter to continue...")
-									o.system("clear")
+									o.system("cls")
 									break
 		elif chance == 3:
 			pra = input("you see a dog in the house, will you 'pet' the dog, 'run', or 'attack' the dog: ")
-			o.system("clear")
+			o.system("cls")
 			if pra == "run":
 				input("you escape from the house, hit enter to continue... ")
-				o.system('clear')
+				o.system('cls')
 			elif pra == "pet":
 				input("whose a good boy? YOU ARE! you get a sword from the dog! hit enter to continue...")
 				swrd()
-				o.system('clear')
+				o.system('cls')
 			elif pra == "attack":
 				chance = r.randint(1,4)
 				if chance == 1 or chance == 2 or chance == 3:
 					input("you think you could get away with trying to kill a dog, you will never prosper, hit enter to continue... ")
-					o.system('clear')
+					o.system('cls')
 					vars.currh = 0
 				else:
 					input("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO YOU MONSTER, YOU KILLED DOGMEAT! hit enter to continue B(")
-					o.system("clear")
+					o.system("cls")
 			else:
 				input("you messed up, hit enter to continue...")
-				o.system("clear")
+				o.system("cls")
 	elif vars.rorl == "run away":
 		input("you ran away and survived, hit enter to continue...")
-		o.system("clear")
+		o.system("cls")
 	else:
 		input("you messed up, hit enter to continue...")
-		o.system("clear")
+		o.system("cls")
 def s4():
 	pass
-	o.system('clear')
+	o.system('cls')
 	yorn = input("you see a woman in the middle of a lake, what will you do ('walk to her','walk away','sneak attack', or 'rush her'")
 	if yorn == 'walk to her':
 		print("you walk to her")
@@ -485,17 +485,17 @@ def s4():
 	elif yorn == 'sneak attack':
 		vars.currh = 1
 		input("she takes you out in one hit leaving you with 1 health, press enter to continue...")
-		o.system('clear')
+		o.system('cls')
 	elif yorn == 'rush her':
 		vars.currh -= 5
 		input("she throws you into a tree leaving you with 5 less health, hit enter to continue...")
 	else:
 		print("you peacfully walk away...")
 		t.sleep(5)
-		o.system('clear')
+		o.system('cls')
 while True:
 	swampdef()
-	o.system("clear")
+	o.system("cls")
 	if vars.currh < 1:
 		death()
 	else:
@@ -518,15 +518,15 @@ while True:
 							vars.currh = 20
 							vars.kit -= 1
 							t.sleep(2)
-							o.system('clear')
+							o.system('cls')
 						elif hkitvar == "n":
 							print("ok, looks like your not gonna use your kit.")
 							t.sleep(2)
-							o.system('clear')
+							o.system('cls')
 						else:
 							print("you have no kits")
 							t.sleep(2)
-							o.system('clear')
+							o.system('cls')
 					else:
 						pass
 					health()
@@ -543,7 +543,7 @@ while True:
 						walkd()
 				else:
 					input("OH CRAP you're in the swamp, hit enter to continue...")
-					o.system("clear")
+					o.system("cls")
 					while True:
 						health()
 						swprd()
@@ -557,7 +557,7 @@ while True:
 							s4()
 						elif swamp.swamprnd == 5:
 							input("OMG OMG OMG, YOU MADE IT OUT! hit enter to continue..")
-							o.system("clear")
+							o.system("cls")
 							break
 				input("hit enter to continue")
-				o.system("clear")
+				o.system("cls")
