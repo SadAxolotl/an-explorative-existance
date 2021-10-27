@@ -5,6 +5,8 @@ import time as t
 o.system("clear")
 import random as r
 o.system("clear")
+from playsound import playsound
+o.system('clear')
 persistant = open("persistant.txt", "r")
 o.system("clear")
 weapon = open("weapon.txt", "r")
@@ -17,14 +19,15 @@ o.system("clear")
 class swamp:
  swamptf = None
  swamprnd = None
+class mtn:
+ mtntf = None
+ mtnrnd = None
 class vars:
  randnum = None
  currh = 20
  kit = 0
  rorl = None
  ifbreak = 0
-def sdnsw():
-	pass
 def dnsw():
 	if vars.rorl == "flee":
 				chance = r.randint(1,2)
@@ -65,11 +68,14 @@ def dnsw():
 					input("hit enter to continue...")
 					o.system("clear")
 def swrd():
+	print("You got a sword!!")
 	weapon = open("weapon.txt", "w")#replace here
 	weapon.write("y")
 	weapon = open("weapon.txt", "r")#replace here
 def swprd():
 	swamp.swamprnd = r.randint(1, 5)
+def mtnprd():
+	mtn.mtnrnd = r.randint(1,6)
 def hkit():
 	print("You found a healthkit!")
 	vars.kit += 1
@@ -81,6 +87,13 @@ def hkit():
 	else:
 		input("you have saved your healthkit, you now have "+str(vars.kit)+" health kits, hit enter to continue...")
 	o.system('clear')
+def mtndef():
+	randnum = r.randint(1,20)
+	if randnum == 1 or randnum == 2 or randnum == 3:
+		mtn.mtntf = True
+		print("you've entered the mountains")
+	else:
+		mtn.mtntf = False
 def swampdef():
 	randnum = r.randint(1,20)
 	if randnum == 13:
@@ -186,6 +199,7 @@ def walka():
 		if chance == 0:
 			hkit()
 def death():
+	playsound('dead.mp3')
 	print("you died LOL")
 	weapon = open("weapon.txt", "w")
 	weapon.write("")
@@ -197,6 +211,9 @@ def health():
 		vars.currh += 1
 	else:
 		print("you have full health, didn't heal")
+def rhealth():
+	vars.currh -= 1
+	print("it's cold, you lost 1 health, health at "+str(vars.currh))
 def s1():
 	print("phew,")
 	hkit()
@@ -493,8 +510,54 @@ def s4():
 		print("you peacfully walk away...")
 		t.sleep(5)
 		o.system('clear')
+def m1():
+	yorn = input("OH NO, theres a avalanch, what will you do?!('run', 'hunker down', or 'run into it') ")
+	if yorn == 'run':
+		chance = r.randint (1,4)
+		if chance == 1:
+			input("phew, you escaped! hit enter to continue...")
+			o.system('clear')
+		elif chance == 2:
+			vars.currh -= 7
+			input ("you lose 7 health from being stuck in the snow then closely after, resqued, press enter to continue...")
+			o.system('clear')
+		elif chance == 3:
+			input("you somehow made it on top of the snow safe, press enter to continue...")
+			o.system('clear')
+		else:
+			print("you got stuck in the snow forever... goodbye...")
+			death()
+def m2():
+	yorn = input("you see a mountain lion in the distance, what will you do ('run away', 'rush', 'sneak attack','befriend'")
+	if yorn == 'run away':
+		chance = r.randint(1,4)
+		if chance == 1:
+			input("you ran away, hit enter to continue...")
+			o.system('clear')
+		else:
+			vars.currh -= 15
+			input("he catches you and takes 15 health away...")
+			print("current health is now "+str(vars.currh))
+			o.system('clear')
+	elif yorn == 'rush':
+		print("the mountain lion hears you and mauls your skin off and eats you to the bone")
+		death()
+	elif yorn == 'sneak attack':
+		chance = r.randint(1,4)
+		if chance == 1:
+			print("the mtn lion rips you apart, he can easily hear you, rookie.")
+			death()
+		else:
+			input("you kill him in one blow")
+def m3():
+	pass
+def m4():
+	pass
+def m5():
+	pass
 while True:
 	swampdef()
+	mtndef()
 	o.system("clear")
 	if vars.currh < 1:
 		death()
@@ -541,12 +604,39 @@ while True:
 						walkc()
 					elif vars.randnum == 5:
 						walkd()
+				elif mtn.mtntf == True:
+					input("hit enter to continue...")
+					o.system('clear')
+					while True:
+						if vars.currh < 1:
+							death()
+						else:
+							pass
+						if r.randint(1,2) == 1:
+							health()
+						else:
+							rhealth()
+						if mtn.mtnrnd == 1:
+							m1()
+						elif mtn.mtnrnd == 2:
+							m2()
+						elif mtn.mtnrnd == 3:
+							m3()
+						elif mtn.mtnrnd == 4:
+							m4()
+						elif mtn.mtnrnd == 5:
+							m5()
+						else: 
+							input("you got out of the mountains!")
+							break
 				else:
 					input("OH CRAP you're in the swamp, hit enter to continue...")
 					o.system("clear")
 					while True:
 						health()
 						swprd()
+						if vars.currh < 1:
+							death()
 						if swamp.swamprnd == 1:
 							s1()
 						elif swamp.swamprnd == 2:
