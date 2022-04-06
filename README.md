@@ -10,3 +10,5 @@ make sure you have all the files in the same folder so the game can run without 
 find the directory of the game and go into CMD and do py (directory)
 
 Anyways, Have fun!
+
+P.S. if you want to run this non windows, fork it on Replit.com!
